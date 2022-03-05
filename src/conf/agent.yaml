@@ -1,0 +1,18 @@
+env: stage
+mqtt:
+  broker: localhost
+  port: 1883
+  client_id: eink-producer-1
+  username:  admin
+  password: password
+  topics:
+    producer: /python/mqtt/images
+    tracker: device_tracker
+    monitor: /python/mqtt/monitoring
+detectors:
+  change_detector:
+    class: ThresholdDetector
+    threshold: 10
+  face_detection:
+    xml_path: ../models/haarcascade.xml
+  
