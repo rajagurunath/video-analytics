@@ -42,13 +42,16 @@ class Agent(object):
 
 
 class ProducerAgent(Agent):
+    __name__ = "producer"
     pass
 
 
 class TrackerAgent(Agent):
+    __name__ = "tracker"
     pass
 
 class MonitorAgent(Agent):
+    __name__ = "monitor"
     pass
 
 if __name__ == "__main__":

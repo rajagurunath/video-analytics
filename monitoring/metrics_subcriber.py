@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 broker = 'localhost'
 port = 1883
 topic = "/python/mqtt/monitoring"
-# generate client ID with pub prefix randomly
 client_id = f'device-monitor'
 topic_tracker = "device_tracker"
 

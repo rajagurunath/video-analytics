@@ -10,6 +10,7 @@ import base64
 import pickle
 import json
 import uuid
+from datetime import datetime
 import time
 from asyncio import Queue
 import cv2
@@ -28,7 +29,7 @@ debug = True
 def im2json(im,frame_num,client_id):
     """Convert a Numpy array to JSON string"""
     imdata = pickle.dumps(im)
-    jstr = json.dumps({"image": base64.b64encode(imdata).decode('ascii'),"frame_num":frame_num,"client_id":client_id,"time":time.now()})
+    jstr = json.dumps({"image": base64.b64encode(imdata).decode('ascii'),"frame_num":frame_num,"client_id":client_id,"time":str(datetime.now())})
     return jstr
 
 
@@ -78,6 +79,8 @@ def change_detection(client):
 
     # cap = cv2.VideoCapture()
     cam = cv2.VideoCapture(0)
+    cam.set(cv2.CAP_PROP_FPS,60)
+
     # cap.open(sys.argv[1])
     manager = SceneManager()
     manager.add_detector(
